@@ -415,13 +415,15 @@ def do_unpack(in_directory, in_arch, force):
 
     arch_assemblies = False
 
-    if force and os.path.isdir("out/"):
-        shutil.rmtree("out/")
+    # if force and os.path.isdir("out/"):
+    #     shutil.rmtree("out/")
 
-    # First check if all files exist.
-    if os.path.isdir("out/"):
-        print("Out directory already exists!")
-        return 3
+    # # First check if all files exist.
+    # if os.path.isdir("out/"):
+    #     print("Out directory already exists!")
+    #     return 3
+    if os.path.isdir("out/") == False:
+        os.mkdir("out/")
 
     manifest_path = os.path.join(in_directory, constants.FILE_ASSEMBLIES_MANIFEST)
     assemblies_path = os.path.join(in_directory, constants.FILE_ASSEMBLIES_BLOB)
@@ -445,8 +447,6 @@ def do_unpack(in_directory, in_arch, force):
     json_data = dict()
     json_data['stores'] = list()
     json_data['assemblies'] = list()
-
-    os.mkdir("out/")
 
     assembly_store = AssemblyStore(assemblies_path, manifest_entries)
 
