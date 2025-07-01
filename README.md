@@ -2,7 +2,7 @@
 This is an alpha release of an `assemblies.blob` AssemblyStore parser written in Python. The tool is capable of unpack and repackaging `assemblies.blob` and `assemblies.manifest` Xamarin files from an APK.
 
 ## Installing via Docker
-Build Docker image
+### Build Docker image
 ```bash
 docker build -t pyxamstore .
 ```
@@ -12,6 +12,15 @@ docker build -t pyxamstore .
 docker run --rm -it -v ./assemblies:/data -v ./out:/app/out pyxamstore unpack -d /data -f
 ```
 
+### Pull via GHCR
+```bash
+docker pull ghcr.io/ramadhanamizudin/pyxamstore:master
+```
+
+### Usage via GHCR image
+```bash
+docker run --rm -it -v ./assemblies:/data -v ./out:/app/out ghcr.io/ramadhanamizudin/pyxamstore:master unpack -d /data -f
+```
 ## Installing
 Run the installer script:
 
